@@ -23,6 +23,8 @@ while True:
     trading_pairs = [s["symbol"] for s in exchange_info['symbols']]
     new_pairs = list(set(trading_pairs) - set(previous_trading_pairs))
     if new_pairs:
+        logging.info("Found new pairs: " + str(new_pairs))
+        logging.info("Sending Messages...")
         for pair in new_pairs:
             send_message(pair + " - new pair listing", TELEGRAM_BOT_TOKEN, CHAT_IDS)
     else:
