@@ -2,6 +2,8 @@ from binance.client import Client
 import time
 from config import *
 import requests
+import logging
+logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %H:%M:%S', level=logging.INFO)
 
 def send_message(message, bot_token, chat_ids):
 
@@ -24,5 +26,5 @@ while True:
         for pair in new_pairs:
             send_message(pair + " - new pair listing", TELEGRAM_BOT_TOKEN, CHAT_IDS)
     else:
-        print("No new pairs")
+        logging.info("No new pairs")
     previous_trading_pairs = trading_pairs
