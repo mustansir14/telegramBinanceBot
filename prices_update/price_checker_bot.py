@@ -33,6 +33,7 @@ while True:
                 new_price = float(new_ticker["price"])
                 if new_price >= 1.04*previous_price:
                     message = "Price Update\n\n%s is up %s in the last 30 minutes. Now at %s" % (previous_symbol, str(round(((new_price / previous_price) - 1)*100, 2)) + '%', new_price)
+                    logging.info(message)
                     send_message(message, TELEGRAM_BOT_TOKEN, CHAT_IDS)
                     counts_dict[previous_symbol] = 0
                 break
