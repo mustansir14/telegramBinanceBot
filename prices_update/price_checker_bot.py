@@ -31,7 +31,7 @@ while True:
         for new_ticker in new_prices:
             if new_ticker["symbol"] == previous_symbol:
                 new_price = float(new_ticker["price"])
-                if new_price >= 1.01*previous_price:
+                if new_price >= 1.04*previous_price:
                     if "e" in str(new_price):
                         new_price_str = f'{new_price:.8f}'
                     else:
