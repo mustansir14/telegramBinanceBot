@@ -36,7 +36,7 @@ while True:
                         new_price_str = f'{new_price:.8f}'
                     else:
                         new_price_str = str(new_price)
-                    message = "Price Update\n\n%s is up %s in the last 30 minutes. Now at %s" % (previous_symbol, str(round(((new_price / previous_price) - 1)*100, 2)) + '%', new_price)
+                    message = "Price Update\n\n%s is up %s in the last 30 minutes. Now at %s" % (previous_symbol, str(round(((new_price / previous_price) - 1)*100, 2)) + '%', new_price_str)
                     logging.info(message)
                     send_message(message, TELEGRAM_BOT_TOKEN, CHAT_IDS)
                     counts_dict[previous_symbol] = 0
