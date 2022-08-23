@@ -33,6 +33,7 @@ if __name__ == "__main__":
         logging.info("Connected.")
         channel = client.get_entity("binance_announcements")
         messages = client.get_messages(channel, min_id=min_id, limit=100)
+        messages.reverse()
         logging.info("Got messages!")
         for message in messages:
             if contains_keyword(message.text):
