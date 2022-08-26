@@ -13,7 +13,7 @@ def send_message(message, bot_token, chat_ids):
         responses.append(requests.post(f"https://api.telegram.org/bot{bot_token}/sendMessage", data={"chat_id": chat_id, "text":message}))
     return responses
 
-KEYWORDS = ["list","listing", "rebrand","rebranding","Launchpool","trading will open","will open trading","will list","open trading"]
+KEYWORDS = ["list","listing", "rebrand","rebranding","Launchpool","trading will open","will open trading","will list","open trading", "trading pair"]
 
 def contains_keyword(text):
     text = text.lower()
