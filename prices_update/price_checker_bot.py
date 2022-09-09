@@ -34,7 +34,7 @@ logging.info("Checking Prices...")
 new_prices = client.get_all_tickers()
 for previous_ticker in previous_prices:
     previous_symbol = previous_ticker["symbol"]
-    if "USDT" not in previous_symbol:
+    if "BUSD" not in previous_symbol:
         continue 
     if previous_symbol in counts_dict and counts_dict[previous_symbol] < counts_for_24_hours:
         counts_dict[previous_symbol] += 1
@@ -54,6 +54,6 @@ for previous_ticker in previous_prices:
                 counts_dict[previous_symbol] = 0
             break
 
-data = {"counts_dict": counts_dict, "previous_prices": previous_prices}
+data = {"counts_dict": counts_dict, "previous_prices": new_prices}
 with open("data.json", "w") as f:
     json.dump(data, f)
